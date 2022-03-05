@@ -1,4 +1,4 @@
-return [[if hwid == HwidTable[1] then
+if hwid == HwidTable[1] then
 venyx:Notify("Cheese Hub Hi Cheese Maker", "Cheese Hub is loading please wait ;)")
 wait(1)
 loadhub()
@@ -179,4 +179,4 @@ elseif hwid == "5ABDF1AE-0DD9-4517-9ED6-03DD3FF65D96" then
 else  
 venyx:Notify("Cheese Hub", [[No you won't have access into my hub
 because your HWID is not right]])
-end]]
+end
