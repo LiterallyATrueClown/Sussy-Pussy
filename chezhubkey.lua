@@ -1,4 +1,3 @@
 return {
-  "TienNguVaiLon",
   "UcDamDeDeTien",
 }
