@@ -1,0 +1,646 @@
+_G.Setting = {
+   	ConfigurationGUI = true -- true, false | Đây là gui giúp bọn mày tuỳ chỉnh vị trí các khúc trong show item
+}
+
+_G.ShowItemConfiguration = { 
+    ItemBlockSize = 75, -- Độ lớn của các khối vật phẩm trong túi đồ
+    MaxItemInOneRow = 12, -- Số lượng vật phẩm hiển thị tối đa trên 1 dòng
+    MeleeMasteryBlockSize = 255, -- Độ lớn của khối hiển thị mastery/thông thạo của Melee
+    RaceTextSize = 280,
+    FruitMasteryBlockSize = 350, -- Độ lớn của khối hiển thị mastery/thông thạo của trái ác quỷ mày đang dùng
+    SwordMasteryBlockSize = 255, -- Độ lớn của khối hiển thị mastery/thông thạo của kiếm
+    HaveSwordImage = true, -- true, false | Có xuất hiện hình ảnh của kiếm không
+    HaveMeleeImage = true, -- true, false | Có xuất hiện hình ảnh của melee không
+}
+
+-- Tí nữa edit xong cái show item thì kéo xuống dưới đáy xã hội có nút copy nhấn vào đó rồi vào script paste đè lên cả cái cục _G.ShowItemSaveConfiguration này là xong
+_G.ShowItemSaveConfiguration = {
+    RacePosition = UDim2.new(0, 1027, 0.5, 0),
+    FruitMasPosition = UDim2.new(0.800000011920929, 30, 0.5, 0),
+    MeleePosition = UDim2.new(0.03999999910593033, 0, 0.10000000149011612, 0),
+    HPosition = UDim2.new(0, 6, 0.949999988079071, 0),
+    BFPosition = UDim2.new(0.6499999761581421, 0, 0.699999988079071, 0),
+    AwkPosition = UDim2.new(0, 1469, 0.800000011920929, 0),
+    IVPosition = UDim2.new(0.0010000000474974513, 0, 0.4099999964237213, 0),
+    BPosition = UDim2.new(0, 6, 0.8899999856948853, 0),
+    SwordPosition = UDim2.new(0.5, 33, 0.10000000149011612, 0),
+    FPosition = UDim2.new(0, 6, 0.8299999833106995, 0),
+}
+
+spawn(function()
+    game.Players.LocalPlayer.PlayerGui.BubbleChat:ClearAllChildren()
+    local awak = game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler
+    awak.Visible = true
+wait()
+local ListSword = {
+    ["Soul Guitar"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/6/6a/SoulGuitar.png",
+    ["Cursed Dual Katana"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/86/CursedDualKatana.png",--
+    ["True Triple Katana"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/85/TrueTripleKatana.png",--
+    ["Dark Dagger"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/0/0b/DarkDagger.png",
+    ["Canvander"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/1/1c/Canvander.png",
+    ["Buddy Sword"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/4/4a/BuddySword.png",
+    ["Yama"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/b/ba/Yama.png",
+    ["Tushita"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/0/0e/Tushita.png",
+    ["Hallow Scythe"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/a/a7/HallowScythe.png",--
+}
+
+local ListHuhu = {
+    ["Superhuman"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/a/ad/Superhuman.png",
+    ["DeathStep"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/89/Death_Step.png",
+    ["ElectricClaw"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/0/00/Electric_Claw.png",
+    ["SharkmanKarate"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b3/Sharkman_Karate.png",
+    ["DragonTalon"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/a/a4/Dragon_Talon_Icon.png",
+    ["Godhuman"] = "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/5e/Godhumanicon.png",
+}
+
+local check = 0
+
+for i,v in pairs(ListSword) do
+    spawn(function()
+	writefile(i..".png", game:HttpGetAsync(v))
+    repeat wait() until isfile(i..".png")
+    check = check + 1
+    end)
+end
+
+for i,v in pairs(ListHuhu) do
+    spawn(function()
+	writefile(i..".png", game:HttpGetAsync(v))
+    repeat wait() until isfile(i..".png")
+    check = check + 1
+    end)
+end
+
+repeat wait() until check == (#ListHuhu + #ListSword)
+
+local library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/LiterallyATrueClown/ClownThingies/main/CheeseHubVenyxGuiLib.lua", true))()
+
+spawn(function()
+    local listarg = {"Bomb-Bomb","Spike-Spike","Chop-Chop","Spring-Spring","Kilo-Kilo","Spin-Spin","Bird: Falcon","Smoke-Smoke","Flame-Flame","Ice-Ice","Sand-Sand","Dark-Dark","Revive-Revive","Diamond-Diamond","Light-Light","Love-Love","Rubber-Rubber","Barrier-Barrier","Magma-Magma","Door-Door","Quake-Quake","Human-Human: Buddha","String-String","Bird-Bird: Phoenix","Rumble-Rumble","Paw-Paw","Gravity-Gravity","Dough-Dough","Shadow-Shadow","Venom-Venom","Control-Control","Soul-Soul","Dragon-Dragon","Leopard-Leopard"}
+    
+    local plr = game:GetService("Players").LocalPlayer
+        for i,v in pairs (listarg) do
+            local tool = plr.Backpack:FindFirstChild(v)
+            if tool then
+                plr.Character.Humanoid:EquipTool(tool)
+            end
+        end
+        local clone = plr.PlayerGui.Main.Skills:Clone()
+        for g,h in pairs(clone:GetChildren()) do
+            if h.Name == "Title" or h.Name == "Level" then
+            else h:Destroy()
+            end
+        end
+        wait(1)
+        clone.Parent = plr.PlayerGui.BubbleChat
+        clone.Name = "FruitMas"
+        clone.BackgroundTransparency = 1
+        local imageLabel = Instance.new("ImageLabel", clone)
+        imageLabel.Size = UDim2.new(_G.ShowItemConfiguration.FruitMasteryBlockSize/1500, 0, _G.ShowItemConfiguration.FruitMasteryBlockSize/1500, 0)
+        imageLabel.BackgroundTransparency = 1
+        imageLabel.ImageRectOffset = Vector2.new(600, 600)
+        for g,h in pairs(plr.PlayerGui.Backpack.Hotbar.Container:GetChildren()) do
+            spawn(function()
+            if h.Number.Text == "2" then
+                imageLabel.Image = h.Image.Image
+                imageLabel.ImageRectOffset = h.Image.ImageRectOffset
+                imageLabel.ImageRectSize = h.Image.ImageRectSize
+            end
+            end)
+        end
+        imageLabel.Position = UDim2.new(-0.3, 0, -0.05, 0)
+        clone.Position = _G.ShowItemSaveConfiguration.FruitMasPosition
+        clone.Size = UDim2.new(0, _G.ShowItemConfiguration.FruitMasteryBlockSize, 0, _G.ShowItemConfiguration.FruitMasteryBlockSize)
+    end)
+
+spawn(function()
+    pcall(function() 
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+    end)
+    pcall(function() 
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.HP.Visible = false
+    end)
+    pcall(function() 
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Energy.Visible = false
+    end)
+    for k,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main:GetChildren()) do 
+        if v:IsA("ImageButton") then 
+            v.Visible = false
+        end
+    end
+    pcall(function() 
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Compass.Visible = false
+    end)
+end)
+
+spawn(function()
+    function formatNumber(v)
+        return tostring(v):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
+    end
+    
+    local F = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+    F.Parent = game:GetService("Players").LocalPlayer.PlayerGui.BubbleChat
+    F.Position = _G.ShowItemSaveConfiguration.FPosition
+    F.Text = "Fragment: "..formatNumber(game.Players.LocalPlayer.Data.Fragments.Value)
+    
+    local B = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli:Clone()
+    B.Parent = game:GetService("Players").LocalPlayer.PlayerGui.BubbleChat
+    B.Position = _G.ShowItemSaveConfiguration.BPosition
+    B.Text = "Beli: "..formatNumber(game.Players.LocalPlayer.Data.Beli.Value)
+    B.TextColor3 = Color3.fromRGB(100,255,100)
+    B.Visible = true
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.Visible = false
+    
+    local H = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+    H.Parent = game:GetService("Players").LocalPlayer.PlayerGui.BubbleChat
+    H.Position = _G.ShowItemSaveConfiguration.HPosition
+    H.Name = "BH"
+    H.Text = "Bounty/Honor: "..formatNumber(game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
+    H.TextColor3 = Color3.fromRGB(0,255,255)
+    
+    local plr = game:GetService("Players").LocalPlayer
+    local Race = Instance.new("TextLabel", game.Players.LocalPlayer.PlayerGui.BubbleChat)
+    local ver = " V1"
+    if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack({[1] = "Alchemist",[2] = "1"})) == -2 then
+    ver = " V2"
+    end
+    if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack({[1] = "Wenlocktoad",[2] = "1"})) == -2 then
+    ver = " V3"
+    end
+    if plr.Backpack:FindFirstChild("Awakening") or plr.Character:FindFirstChild("Awakening") then
+    ver = " V4"
+    end
+    Race.Name = "Race"
+    Race.BackgroundTransparency = 0.5
+    Race.BackgroundColor3 = Color3.fromRGB(0,0,0)
+    Race.Position = _G.ShowItemSaveConfiguration.RacePosition
+    Race.Size = UDim2.new(0, 280, 0, 50)
+    Race.Font = Enum.Font.SourceSans
+    Race.Text = "Race: "..game.Players.LocalPlayer.Data.Race.Value..ver
+    Race.TextColor3 = Color3.fromRGB(0, 255, 0)
+    Race.TextScaled = true
+    Race.TextSize = 50
+    Race.TextWrapped = true
+end)
+
+spawn(function()
+wait(1)
+if awak:FindFirstChild("TopContainer") or awak:FindFirstChild("BottomContainer") then
+local clone = awak:Clone()
+clone.Parent = game.Players.LocalPlayer.PlayerGui.BubbleChat
+awak.Visible = false
+for i,v in pairs (clone:GetChildren()) do
+    spawn(function()
+        v.BackgroundTransparency = 1
+    end)
+    if v.Name:match("UI") or v.Name:match("Container") then
+        spawn(function()
+            v:FindFirstChild("Background"):Destroy()
+        end)
+    else v:Destroy()
+end
+end
+clone.Visible = true
+clone.Position = _G.ShowItemSaveConfiguration.AwkPosition
+end
+end)
+
+local cac = require(game:GetService("Players").LocalPlayer.PlayerGui.Main.UIController.Inventory)
+local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
+local Items = {}
+local RaityLevel = {"Mythical","Legendary"}
+local RaityColor =  {
+    ["Legendary"] = Color3.fromRGB(213, 43, 228) ,
+    ["Mythical"] =  Color3.fromRGB(238, 47, 50)
+}
+function GetRaity(color)
+    for k,v in pairs(RaityColor) do 
+        if v==color then return k end
+    end
+end
+
+for k,v in pairs(Inventory) do 
+    Items[v.Name] = v
+end
+
+local total = #getupvalue(cac.UpdateRender,4)
+local rac = {}
+local allitem = {}
+local total2 = 0
+
+while total2<total do 
+    local i = 0
+    while i < 25000 and total2<total do 
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.CanvasPosition = Vector2.new(0,i)
+        for k,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.Frame:GetChildren()) do 
+            if v:IsA("Frame") and not rac[v.ItemName.Text] and v.ItemName.Visible==true then 
+                local vaihuhu = GetRaity(v.Background.BackgroundColor3)
+                if vaihuhu then
+                    if not allitem[vaihuhu] then 
+                        allitem[vaihuhu] = {}
+                    end
+                    table.insert(allitem[vaihuhu],v:Clone())
+                end
+                total2=total2+1
+                rac[v.ItemName.Text] = true
+            end
+        end
+        i=i+20
+    end
+end
+
+function GetXY(vec) 
+    return vec*100
+end
+
+spawn(function()
+
+
+local IV = Instance.new("Frame",game.Players.LocalPlayer.PlayerGui.BubbleChat)
+IV.BackgroundTransparency = 1
+IV.Size = UDim2.new(.5,0,1,0) 
+IV.Position = _G.ShowItemSaveConfiguration.IVPosition
+IV.Name = "IV"
+local tvk = Instance.new("UIListLayout", IV)
+tvk.FillDirection = Enum.FillDirection.Vertical
+tvk.SortOrder = 2
+tvk.Padding = UDim.new(0,20)
+
+local BF = Instance.new("Frame",game.Players.LocalPlayer.PlayerGui.BubbleChat)
+BF.BackgroundTransparency = 1
+BF.Size = UDim2.new(.5,0,1,0) 
+BF.Position = _G.ShowItemSaveConfiguration.BFPosition
+BF.Name = "BF"
+tvk:Clone().Parent = BF
+local bucac
+for k,v in pairs(allitem) do 
+    local cac = Instance.new("Frame",IV)
+    cac.BackgroundTransparency = 1
+    cac.Size = UDim2.new(1,0,0,0) 
+    cac.LayoutOrder = table.find(RaityLevel,k)
+    local cac2 = Instance.new("Frame",BF)
+    cac2.BackgroundTransparency = 1
+    cac2.Size = UDim2.new(1,0,0,0) 
+    cac2.LayoutOrder = table.find(RaityLevel,k)
+    local tvk = Instance.new("UIGridLayout",cac)
+    tvk.CellPadding = UDim2.new(.02,0,.08,0)
+    tvk.CellSize =  UDim2.new(0,_G.ShowItemConfiguration.ItemBlockSize,0,_G.ShowItemConfiguration.ItemBlockSize)
+    tvk.FillDirectionMaxCells = _G.ShowItemConfiguration.MaxItemInOneRow
+    tvk.FillDirection = Enum.FillDirection.Horizontal
+    local ccc = tvk:Clone()
+    ccc.Parent = cac2
+    for k,v in pairs(v) do 
+        if Items[v.ItemName.Text] and Items[v.ItemName.Text].Mastery then 
+            if v.ItemLine2.Text~="Accessory" then 
+                bucac = v.ItemName:Clone()
+                bucac.BackgroundTransparency = 1
+                bucac.TextSize = 10
+                bucac.TextXAlignment  = 2
+                bucac.TextYAlignment  = 2
+                bucac.ZIndex  = 5
+                bucac.Text = Items[v.ItemName.Text].Mastery
+                bucac.Size = UDim2.new(.5,0,.5,0)
+                bucac.Position = UDim2.new(.5,0,.5,0)
+                bucac.Parent = v
+            end
+            v.Parent = cac
+        elseif v.ItemLine2.Text == "Blox Fruit" then 
+            v.Parent = cac2
+        end
+    end
+    cac.AutomaticSize = 2
+    cac2.AutomaticSize = 2
+end
+end)
+
+local tvk = Instance.new("UIListLayout")
+tvk.FillDirection = Enum.FillDirection.Vertical
+tvk.SortOrder = Enum.SortOrder.LayoutOrder
+tvk.Padding = UDim.new(0,0)
+
+local Right = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
+Right.BackgroundTransparency = 1
+Right.Size = UDim2.new(0.5, 0, 1, 0) 
+Right.Position = _G.ShowItemSaveConfiguration.MeleePosition 
+Right.Name = "MeleeMas"
+
+local tvkRight = tvk:Clone()
+tvkRight.Parent = Right
+tvkRight.HorizontalAlignment = Enum.HorizontalAlignment.Right 
+
+local bucac
+
+local MeleeG = Instance.new("Frame", Right)
+MeleeG.BackgroundTransparency = 1
+MeleeG.Size = UDim2.new(1, 0, 3, 0)
+MeleeG.Position = UDim2.new(0, 0, 0, 0) 
+MeleeG.LayoutOrder = table.find(RaityLevel, k)
+MeleeG.AutomaticSize = 2
+MeleeG.LayoutOrder = 1 
+
+local tvk = Instance.new("UIGridLayout", MeleeG)
+tvk.CellPadding = UDim2.new(0.1, 0, -0.045, 0)
+tvk.CellSize = UDim2.new(0, _G.ShowItemConfiguration.MeleeMasteryBlockSize, 0, _G.ShowItemConfiguration.MeleeMasteryBlockSize)
+tvk.FillDirectionMaxCells = 3
+tvk.FillDirection = Enum.FillDirection.Vertical
+
+local listarg = {
+	"Superhuman",
+	"Death Step",
+	"Electric Claw",
+	"Sharkman Karate",
+	"Dragon Talon",
+	"Godhuman",
+}
+
+local plr = game:GetService("Players").LocalPlayer
+for i,v in pairs(ListHuhu) do
+    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy"..i) == 1 then
+        for i,v in pairs (listarg) do
+            local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(v)
+            if tool then
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+            end
+        end
+    spawn(function()
+	local clone = plr.PlayerGui.Main.Skills:Clone()
+	for g,h in pairs(clone:GetChildren()) do
+		if h.Name == "Title" or h.Name == "Level" then
+		else h:Destroy()
+		end
+	end
+	clone.Parent = MeleeG
+	clone.BackgroundTransparency = 1
+	if _G.ShowItemConfiguration.HaveMeleeImage == true then
+	local imageLabel = Instance.new("ImageLabel", clone)
+	imageLabel.Size = UDim2.new(0.25, 0, 0.25, 0)
+	imageLabel.BackgroundTransparency = 1
+    if syn then
+		spawn(function()
+			imageLabel.Image = getsynasset(i..".png")
+		end)
+	else
+		spawn(function()
+			imageLabel.Image = getcustomasset(i..".png")
+		end)
+	end
+	imageLabel.Position = UDim2.new(-0.3, 0, -0.1, 0)
+	end
+end)
+    end
+    wait(0.5)
+end
+
+buda = 1
+
+function TimKiemItemNehuhu(item)
+    for k,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+        if v.Name:gsub(" ","") == item then 
+            return v
+        end
+    end
+end
+
+local nguu = {}
+
+spawn(function() 
+    local a = #nguu
+    local bucu = 0
+    while bucu < a do 
+        for k,v in pairs(Listcaiditconmemayskidconcaca) do 
+            if not v:FindFirstChild("Ditme") then 
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy"..k) 
+                wait(.1)
+                local v2 = TimKiemItemNehuhu(k)
+                if v2 then 
+                    v2:WaitForChild("Level")
+                    local Ditme = bucac:Clone()
+                    Ditme.Name = "Ditme"
+                    Ditme.BackgroundTransparency = 1
+                    Ditme.TextSize = 10
+                    Ditme.TextXAlignment  = 2
+                    Ditme.TextYAlignment  = 2
+                    Ditme.ZIndex  = 5
+                    Ditme.Text = v2.Level.Value
+                    Ditme.Size = UDim2.new(.5,0,.5,0)
+                    Ditme.Position = UDim2.new(.5,0,.5,0)
+                    Ditme.Parent = v
+                    bucu=bucu+1
+                end
+            end
+        end
+        wait()
+    end
+
+end)
+
+local tvk = Instance.new("UIListLayout")
+tvk.FillDirection = Enum.FillDirection.Vertical
+tvk.SortOrder = Enum.SortOrder.LayoutOrder
+tvk.Padding = UDim.new(0,0)
+local Sword = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
+Sword.BackgroundTransparency = 1
+Sword.Size = UDim2.new(0.5, 0, 1, 0) 
+Sword.Position = _G.ShowItemSaveConfiguration.SwordPosition 
+Sword.Name = "Sword"
+
+local tvkRight = tvk:Clone()
+tvkRight.Parent = Sword
+tvkRight.HorizontalAlignment = Enum.HorizontalAlignment.Right
+local SwordMas = Instance.new("Frame", Sword)
+SwordMas.BackgroundTransparency = 1
+SwordMas.Size = UDim2.new(1, 0, 3, 0)
+SwordMas.Position = UDim2.new(0, 0, 0, 0) 
+SwordMas.AutomaticSize = 2
+SwordMas.LayoutOrder = 1 
+local tvk = Instance.new("UIGridLayout", SwordMas)
+tvk.CellPadding = UDim2.new(0.1, 0, -0.055, 0)
+tvk.CellSize = UDim2.new(0, _G.ShowItemConfiguration.SwordMasteryBlockSize, 0, _G.ShowItemConfiguration.SwordMasteryBlockSize)
+tvk.FillDirectionMaxCells = 3
+tvk.FillDirection = Enum.FillDirection.Vertical
+
+local plr = game:GetService("Players").LocalPlayer
+for i,v in pairs(ListSword) do
+	game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+    if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadItem", i) == true then
+	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild(i))
+    spawn(function()
+	local clone = plr.PlayerGui.Main.Skills:Clone()
+	for g,h in pairs(clone:GetChildren()) do
+		if h.Name == "Title" or h.Name == "Level" then
+		else h:Destroy()
+		end
+	end
+	clone.Parent = SwordMas
+	clone.BackgroundTransparency = 1
+	local imageLabel = Instance.new("ImageLabel", clone)
+	imageLabel.Size = UDim2.new(0.25, 0, 0.25, 0)
+	imageLabel.BackgroundTransparency = 1
+if _G.ShowItemConfiguration.HaveSwordImage == true then
+	if syn then
+		spawn(function()
+			imageLabel.Image = getsynasset(i..".png")
+		end)
+	else
+		spawn(function()
+			imageLabel.Image = getcustomasset(i..".png")
+		end)
+	end
+end
+	imageLabel.Position = UDim2.new(-0.3, 0, -0.1, 0)
+end)
+wait(0.5)
+end
+end
+if _G.Setting.ConfigurationGUI == true then
+local venyx = library.new("Show Items V2", 5013109572)
+
+local themes = {
+	Background = Color3.fromRGB(24, 24, 24), 
+	Glow = Color3.fromRGB(0, 255, 255), 
+	Accent = Color3.fromRGB(0, 0, 0), 
+	LightContrast = Color3.fromRGB(30, 30, 30), 
+	DarkContrast = Color3.fromRGB(0, 0, 0),  
+	TextColor = Color3.fromRGB(0, 255, 255)
+}
+
+local SICNF = venyx:addPage("Show Item CFG", 5012544693)
+local IVPos = SICNF:addSection("Inventory Items Position")
+local BFPos = SICNF:addSection("Blox Fruits Position")
+local MeleePos = SICNF:addSection("Melee Mastery Boxes Position")
+local SwordPos = SICNF:addSection("Sword Mastery Boxes Position")
+local AwkPos = SICNF:addSection("Awakening Panel Position")
+local FruitMasPos = SICNF:addSection("Fruit Mastery Box Position")
+local RacePos = SICNF:addSection("Race Text Position")
+local FPos = SICNF:addSection("Fragment Text Position")
+local BPos = SICNF:addSection("Beli Text Position")
+local HPos = SICNF:addSection("Bounty/Honor Text Position")
+local Copy = SICNF:addSection("Copy Configuration")
+local plrbbchat = game:GetService("Players").LocalPlayer.PlayerGui.BubbleChat
+
+IVPos:addSlider("X", 0, -2000, 2000, function(value)
+    plrbbchat.IV.Position = UDim2.new(plrbbchat.IV.Position.X.Scale, value, plrbbchat.IV.Position.Y.Scale, plrbbchat.IV.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.IVPosition =  plrbbchat.IV.Position
+end)
+
+IVPos:addSlider("Y", 0, -2000, 2000, function(value)
+    plrbbchat.IV.Position = UDim2.new(plrbbchat.IV.Position.X.Scale, plrbbchat.IV.Position.X.Offset, plrbbchat.IV.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.IVPosition =  plrbbchat.IV.Position
+end)
+
+
+BFPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.BF.Position = UDim2.new(plrbbchat.BF.Position.X.Scale, value, plrbbchat.BF.Position.Y.Scale, plrbbchat.BF.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.BFPosition =  plrbbchat.BF.Position
+end)
+
+BFPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.BF.Position = UDim2.new(plrbbchat.BF.Position.X.Scale, plrbbchat.BF.Position.X.Offset, plrbbchat.BF.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.BFPosition =  plrbbchat.BF.Position
+end)
+
+MeleePos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.MeleeMas.Position = UDim2.new(plrbbchat.MeleeMas.Position.X.Scale, value, plrbbchat.MeleeMas.Position.Y.Scale, plrbbchat.MeleeMas.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.MeleePosition =  plrbbchat.MeleeMas.Position
+end)
+
+MeleePos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.MeleeMas.Position = UDim2.new(plrbbchat.MeleeMas.Position.X.Scale, plrbbchat.MeleeMas.Position.X.Offset, plrbbchat.MeleeMas.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.MeleePosition =  plrbbchat.MeleeMas.Position
+end)
+
+SwordPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.Sword.Position = UDim2.new(plrbbchat.Sword.Position.X.Scale, value, plrbbchat.Sword.Position.Y.Scale, plrbbchat.Sword.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.SwordPosition =  plrbbchat.Sword.Position
+end)
+
+SwordPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.Sword.Position = UDim2.new(plrbbchat.Sword.Position.X.Scale, plrbbchat.Sword.Position.X.Offset, plrbbchat.Sword.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.SwordPosition =  plrbbchat.Sword.Position
+end)
+
+
+AwkPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.AwakeningToggler.Position = UDim2.new(plrbbchat.AwakeningToggler.Position.X.Scale, value, plrbbchat.AwakeningToggler.Position.Y.Scale, plrbbchat.AwakeningToggler.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.AwkPosition =  plrbbchat.AwakeningToggler.Position
+end)
+
+AwkPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.AwakeningToggler.Position = UDim2.new(plrbbchat.AwakeningToggler.Position.X.Scale, plrbbchat.AwakeningToggler.Position.X.Offset, plrbbchat.AwakeningToggler.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.AwkPosition =  plrbbchat.AwakeningToggler.Position
+end)
+
+FruitMasPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.FruitMas.Position = UDim2.new(plrbbchat.FruitMas.Position.X.Scale, value, plrbbchat.FruitMas.Position.Y.Scale, plrbbchat.FruitMas.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.FruitMasPosition =  plrbbchat.FruitMas.Position
+end)
+
+FruitMasPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.FruitMas.Position = UDim2.new(plrbbchat.FruitMas.Position.X.Scale, plrbbchat.FruitMas.Position.X.Offset, plrbbchat.FruitMas.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.FruitMasPosition =  plrbbchat.FruitMas.Position
+end)
+
+RacePos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.Race.Position = UDim2.new(plrbbchat.Race.Position.X.Scale, value, plrbbchat.Race.Position.Y.Scale, plrbbchat.Race.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.RacePosition =  plrbbchat.Race.Position
+end)
+
+RacePos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.Race.Position = UDim2.new(plrbbchat.Race.Position.X.Scale, plrbbchat.Race.Position.X.Offset, plrbbchat.Race.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.RacePosition =  plrbbchat.Race.Position
+end)
+
+FPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.Fragments.Position = UDim2.new(plrbbchat.Fragments.Position.X.Scale, value, plrbbchat.Fragments.Position.Y.Scale, plrbbchat.Fragments.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.FPosition =  plrbbchat.Fragments.Position
+end)
+
+FPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.Fragments.Position = UDim2.new(plrbbchat.Fragments.Position.X.Scale, plrbbchat.Fragments.Position.X.Offset, plrbbchat.Fragments.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.FPosition =  plrbbchat.Fragments.Position
+end)
+
+BPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.Beli.Position = UDim2.new(plrbbchat.Beli.Position.X.Scale, value, plrbbchat.Beli.Position.Y.Scale, plrbbchat.Beli.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.BPosition =  plrbbchat.Beli.Position
+end)
+
+BPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.Beli.Position = UDim2.new(plrbbchat.Beli.Position.X.Scale, plrbbchat.Beli.Position.X.Offset, plrbbchat.Beli.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.BPosition =  plrbbchat.Beli.Position
+end)
+
+HPos:addSlider("X", 0, -2000, 2000, function(value)
+	plrbbchat.BH.Position = UDim2.new(plrbbchat.BH.Position.X.Scale, value, plrbbchat.BH.Position.Y.Scale, plrbbchat.BH.Position.Y.Offset)
+    _G.ShowItemSaveConfiguration.HPosition =  plrbbchat.BH.Position
+end)
+
+HPos:addSlider("Y", 0, -2000, 2000, function(value)
+	plrbbchat.BH.Position = UDim2.new(plrbbchat.BH.Position.X.Scale, plrbbchat.BH.Position.X.Offset, plrbbchat.BH.Position.Y.Scale, value)
+    _G.ShowItemSaveConfiguration.HPosition =  plrbbchat.BH.Position
+end)
+
+Copy:addButton("Copy Configuration", function()
+	if setclipboard then
+        local str = "_G.ShowItemSaveConfiguration = {\n"
+        for key, value in pairs(_G.ShowItemSaveConfiguration) do
+            str = str .. "    " .. tostring(key) .. " = UDim2.new(" .. tostring(value.X.Scale) .. ", " .. tostring(value.X.Offset) .. ", " .. tostring(value.Y.Scale) .. ", " .. tostring(value.Y.Offset) .. "),\n"
+        end
+        str = str .. "}"
+        setclipboard(str)
+    end
+end)
+
+local theme = venyx:addPage("Theme", 5012544693)
+local colors = theme:addSection("Colors")
+
+for theme, color in pairs(themes) do
+	colors:addColorPicker(theme, color, function(color3)
+		venyx:setTheme(theme, color3)
+	end)
+end
+
+venyx:SelectPage(venyx.pages[1], true)
+end
+end)
+game:GetService("Players").LocalPlayer.Character.Humanoid:UnequipTools()

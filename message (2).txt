@@ -1,0 +1,55 @@
+ stringdumpGJpQSiWQpcallauZtSnLXprintKECVSJXR stringmatchgZUtaOJK mathldexpatXnLCOPsetmetatablenROtMvXgVector3rDYsrZaUwaitfpMxwBYf9DYojOIrFtostringQabsvKZs tableunpackGlZqmFeOunpackdJBYJJJqprintmRjYGCIDselectJ__QTvcH mathfloorcZgMZibd    7   This file was protected with MoonSec V3 by Federal#9999 	   function7  p{ŒðA    Sea1    wait    Players    LocalPlayer    Settings    t    spawn    game    GetMsg2    w 	   function8    MoonTextureId    PostWebhook    IsLoaded  0ñRÀûA    _scSzhMrvnRbJ    MoonSec_StringsHiddenAttr    task   S­„äA    Sea2 	   function6    Sea3    IsMirageIsland    PlaceId    u9 	   CheckMoonO                      &      k      {       O                                         	          ;                                      k            x                                k                                      
+         %   k   %  k            a      &   ,   k   ,        W        6  &   /   k   /  k   2        W        6  &u   6   k   6        $     c     $     c     $     c      $     c  
+   $     c     $     c     $     c     $     c     $     c  	   M       
+   c      #      
+   c      r                     moon2    moon7 
+   Next Night    moon4 *   http://www.roblox.com/asset/?id=9709149431 *   http://www.roblox.com/asset/?id=9709139597 	   Full Moon    moon8    moon3    MoonTextureId *   http://www.roblox.com/asset/?id=9709150401 *   http://www.roblox.com/asset/?id=9709143733 *   http://www.roblox.com/asset/?id=9709149680    moon1 *   http://www.roblox.com/asset/?id=9709150086    moon5    Bad Moon    moonreal *   http://www.roblox.com/asset/?id=9709149052    moon6    cofullmoonkothangbeo *   http://www.roblox.com/asset/?id=97091358951   b                                          $      b            	         	                     M         
+    q     $            M                 m      k     k                U      k     k   .             U   $   k   $  k   '        W         .             U   ,   k   ,  k   .        $             X       {                  game         HttpPost    request    syn    Method    Content-Type    Body    HttpService 
+   GetService    Headers    http_request 
+   JSONEncode    Url    POST    application/json         &     k          ~      k     k          ~      k     k           :     <      ]          0          0              %   
+ s  	    
+                                   X      {                 Map    ```false``` 	   Workspace    game 
+   ```true```    MysticIsland    FindFirstChild 
+   GetService   B                   
+                         z     ~       k            X      k            X       {               	   Full Moon    floor    math 	   ClockTime      >@    Lighting      2@     ( Will Full Moon In       (@ 	   function6     ( Will End Moon In  
+   Next Night 
+    Minutes )      @     ( Fake Moon )    game    tostring 	   CheckMoon      8@€   y                             &     k     k     &?     k          d  
+                              	     Y                       T        q    &u  (   k   (  E     k     k   (  &  (  	 k   (       "  
+                                  T        q    &u  =   k   =  e 	 =   k   =  &  =   k   =       d  
+                              	     Y                       T        q    &  B   k   B  k   T  E  E   k   E  k   T  &)  H   k   H  k   T       d  
+                                                  X           q    &u  h   k   h  &L  [  	 k   [  k   h       d  
+                                   Y                       z        q    &u  z   k   z  e 	 z   k   z       d  
+                                                  X          f  
+                                          ```    tostring   1           	                            {              
+   Next Night    wait    GetMsg2    task 	   CheckMoon    PostWebhook 	   Full Moon y   https://discord.com/api/webhooks/1061909998353002496/KpkENetoisID7HXdLZ8LmwKtC7ZZfhg3YJoWQX0BHgwKySsQIqTGu5o3G6c2pJ4a0haU          @                        &      k            q     &u       k             q     &      k            q     &      k     k                      ,             {                  PostWebhook    MysticIsland    task    Map 
+   GetService    game    FindFirstChild    wait 	   Workspace    GetMsg2 y   https://discord.com/api/webhooks/1061902052030160916/hDs58bL_gWbFMX7oy8cYdrK0S_2fla7zaiqTnF70wlODjqvB06PZ7_0RSAnogoK1UO7c          Z                           	          
+       %            z     &      k     k                   	  	                                  ~       k                  
+    ,             {           	    
+   GetService    Sky    Sea3    Sea1     MoonTextureId 
+   FantasySky    Sea2    Lighting    game"         &      k     k        	                                             !        ~       k        	                
+                             !        ~   !    k   !     	    D                                       {           	         @    Night    Error    Lighting 	   ClockTime    GameTime    Day    game      0@   6                                	    k     k     &L     k     k          W               $           X      {           $    ;   game:GetService("TeleportService"):TeleportToPlaceInstance(    fields    /12    Job Id:    u9    ```lua
+    name    InviteScript    Players 	   CheckMoon    Moon Status:    embeds    
+``` 	   function7 	   function8    ," 
+   NumPlayers    ||    k3    Script To Join:    Player Count:    Blox Fruit Full Moon Checker    ", game.Players.LocalPlayer)    JobId    game    Server Time:    inline     |     taoddododododo    value    PlaceId    Account:    IsMirageIsland    title    Mirage Status:T                                               A                                      0  #   O      P     0           
+                   09     4     0   $   "            0          09    _                	     
+     	 
+       
+      3    0          0   !       	     
+        
+     0          0     	     
+      
+ 
+ 	  : 
+ 
+  i       
+ 
+    	      	 0      	    0 	    
+    `            
+    	  
+ 0 	     
+    0
+ 
+                        
+   0	 
+      
+  +     F    +            X       {               	   ClockTime    math    Lighting    game    floor   2                                            {            

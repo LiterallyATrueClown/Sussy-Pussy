@@ -1,0 +1,277 @@
+????
+XTUOCDriverService
+Xbox Live Networking Service
+Xbox Live Game Save
+Xbox Live Auth Manager
+Xbox Accessory Management Service
+WWAN AutoConfig
+Workstation
+Work Folders
+WMI Performance Adapter
+WLAN AutoConfig
+Wired AutoConfig
+WinHTTP Web Proxy Auto-Discovery Service
+Windows Update Medic Service
+Windows Update
+Windows Time
+Windows Security Service
+Windows Search
+Windows Remote Management (WS-Management)
+Windows PushToInstall Service
+Windows Push Notifications User Service_130cad
+Windows Push Notifications System Service
+Windows Perception Simulation Service
+Windows Perception Service
+Windows Modules Installer
+Windows Mobile Hotspot Service
+Windows Mixed Reality OpenXR Service
+Windows Media Player Network Sharing Service
+Windows Management Service
+Windows Management Instrumentation
+Windows License Manager Service
+Windows Installer
+Windows Insider Service
+Windows Image Acquisition (WIA)
+Windows Font Cache Service
+Windows Event Log
+Windows Event Collector
+Windows Error Reporting Service
+Windows Encryption Provider Host Service
+Windows Defender Firewall
+Windows Defender Advanced Threat Protection Service
+Windows Connection Manager
+Windows Connect Now - Config Registrar
+Windows Camera Frame Server
+Windows Biometric Service
+Windows Backup
+Windows Audio Endpoint Builder
+Windows Audio
+Wi-Fi Direct Services Connection Manager Service
+Wifi AutoInstall Service
+WebClient
+Web Account Manager
+WarpJITSvc
+WalletService
+Volumetric Audio Compositor Service
+Volume Shadow Copy
+Virtual Disk
+User Profile Service
+User Manager
+User Experience Virtualization Service
+User Energy Server Service queencreek
+User Data Storage_130cad
+User Data Access_130cad
+UPnP Device Host
+Update Orchestrator Service
+Udk User Service_130cad
+Touch Keyboard and Handwriting Panel Service
+Time Broker
+Themes
+Telephony
+TCP/IP NetBIOS Helper
+Task Scheduler
+System Guard Runtime Monitor Broker
+System Events Broker
+System Event Notification Service
+SysMain
+SynTPEnh Caller Service
+Sync Host_130cad
+Storage Tiers Management
+Storage Service
+Still Image Acquisition Events
+State Repository Service
+SSDP Discovery
+Spot Verifier
+Spatial Data Service
+Software Protection
+SNMP Trap
+Smart Card Removal Policy
+Smart Card Device Enumeration Service
+Smart Card
+Shell Hardware Detection
+Shared PC Account Manager
+Server
+Sensor Service
+Sensor Monitoring Service
+Sensor Data Service
+Security Center
+Security Accounts Manager
+Secure Socket Tunneling Protocol Service
+Secondary Logon
+RPC Endpoint Mapper
+Routing and Remote Access
+Retail Demo Service
+Remote Registry
+Remote Procedure Call (RPC) Locator
+Remote Procedure Call (RPC)
+Remote Desktop Services UserMode Port Redirector
+Remote Desktop Services
+Remote Desktop Configuration
+Remote Access Connection Manager
+Remote Access Auto Connection Manager
+Recommended Troubleshooting Service
+Radio Management Service
+Quality Windows Audio Video Experience
+Program Compatibility Assistant Service
+Problem Reports Control Panel Support
+PrintWorkflow_130cad
+Printer Extensions and Notifications
+Print Spooler
+Power
+Portable Device Enumerator Service
+PNRP Machine Name Publication Service
+Plug and Play
+Phone Service
+Performance Logs & Alerts
+Performance Counter DLL Host
+Peer Networking Identity Manager
+Peer Networking Grouping
+Peer Name Resolution Protocol
+Payments and NFC/SE Manager
+Parental Controls
+Optimise drives
+OpenSSH Authentication Agent
+Offline Files
+Network Store Interface Service
+Network Setup Service
+Network Location Awareness
+Network List Service
+Network Connectivity Assistant
+Network Connections
+Network Connection Broker
+Network Connected Devices Auto-Setup
+Netlogon
+Net.Tcp Port Sharing Service
+Natural Authentication
+Microsoft Windows SMS Router Service.
+Microsoft Update Health Service
+Microsoft Store Install Service
+Microsoft Storage Spaces SMP
+Microsoft Software Shadow Copy Provider
+Microsoft Passport Container
+Microsoft Passport
+Microsoft Keyboard Filter
+Microsoft iSCSI Initiator Service
+Microsoft Edge Update Service (edgeupdatem)
+Microsoft Edge Update Service (edgeupdate)
+Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)
+Microsoft Defender Antivirus Service
+Microsoft Defender Antivirus Network Inspection Service
+Microsoft Cloud Identity Service
+Microsoft App-V Client
+Microsoft Account Sign-in Assistant
+Microsoft (R) Diagnostics Hub Standard Collector Service
+MessagingService_130cad
+McpManagementService
+Local Session Manager
+Local Profile Assistant Service
+Link-Layer Topology Discovery Mapper
+Language Experience Service
+KtmRm for Distributed Transaction Coordinator
+IPsec Policy Agent
+IP Translation Configuration Service
+IP Helper
+Internet Connection Sharing (ICS)
+Intel(R) System Usage Report Service SystemUsageReportSvc_QUEENCREEK
+Intel(R) SUR QC Software Asset Manager
+Intel(R) HD Graphics Control Panel Service
+Intel(R) Driver & Support Assistant Updater
+Intel(R) Driver & Support Assistant
+Intel(R) Content Protection HECI Service
+Intel Bluetooth Service
+IKE and AuthIP IPsec Keying Modules
+Hyper-V Volume Shadow Copy Requestor
+Hyper-V Time Synchronization Service
+Hyper-V Remote Desktop Virtualization Service
+Hyper-V PowerShell Direct Service
+Hyper-V Heartbeat Service
+Hyper-V Guest Shutdown Service
+Hyper-V Guest Service Interface
+Hyper-V Data Exchange Service
+HV Host Service
+Human Interface Device Service
+HP System Info HSA Service
+HP Network HSA Service
+HP Diagnostics HSA Service
+HP App Helper HSA Service
+Group Policy Client
+GraphicsPerfSvc
+Geolocation Service
+GameDVR and Broadcast User Service_130cad
+Function Discovery Resource Publication
+Function Discovery Provider Host
+File History Service
+Fax
+Extensible Authentication Protocol
+ESIF Upper Framework Service
+Enterprise App Management Service
+Energy Server Service queencreek
+Encrypting File System (EFS)
+Embedded Mode
+Elan Service
+Downloaded Maps Manager
+DNS Client
+Distributed Transaction Coordinator
+Distributed Link Tracking Client
+Display Policy Service
+Display Enhancement Service
+DialogBlockingService
+Diagnostic System Host
+Diagnostic Service Host
+Diagnostic Policy Service
+Diagnostic Execution Service
+DHCP Client
+DevQuery Background Discovery Broker
+DevicesFlow_130cad
+DevicePicker_130cad
+DeviceAssociationBroker_130cad
+Device Setup Manager
+Device Management Wireless Application Protocol (WAP) Push message Routing Service
+Device Management Enrollment Service
+Device Install Service
+Device Association Service
+Delivery Optimization
+dcsvc
+DCOM Server Process Launcher
+Data Usage
+Data Sharing Service
+Cryptographic Services
+CredentialEnrollmentManagerUserSvc_130cad
+Credential Manager
+CoreMessaging
+Contact Data_130cad
+ConsentUX_130cad
+Connected User Experiences and Telemetry
+Connected Devices Platform User Service_130cad
+Connected Devices Platform Service
+COM+ System Application
+COM+ Event System
+CNG Key Isolation
+Clipboard User Service_130cad
+Client License Service (ClipSVC)
+Certificate Propagation
+Cellular Time
+CaptureService_130cad
+Capability Access Manager Service
+brlapi
+BranchCache
+Bluetooth User Support Service_130cad
+Bluetooth Support Service
+Bluetooth Audio Gateway Service
+Block Level Backup Engine Service
+BitLocker Drive Encryption Service
+Base Filtering Engine
+Background Tasks Infrastructure Service
+Background Intelligent Transfer Service
+AVCTP service
+Auto Time Zone Updater
+AssignedAccessManager Service
+AppX Deployment Service (AppXSVC)
+Application Management
+Application Layer Gateway Service
+Application Information
+Application Identity
+App Readiness
+AllJoyn Router Service
+Agent Activation Runtime_130cad
+ActiveX Installer (AxInstSV)
